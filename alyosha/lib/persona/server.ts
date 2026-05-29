@@ -4,7 +4,7 @@ import { PERSONA_COOKIE, type Persona, type PersonaRole } from "./types";
 
 const DEFAULT_PERSONA: Persona = {
   role: "client",
-  id: "marcus-bell",
+  id: "client-marcus-bell",
   name: "Marcus Bell",
 };
 

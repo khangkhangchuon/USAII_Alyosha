@@ -7,7 +7,7 @@ create extension if not exists "vector";
 -- --- Reference / org-side tables ---
 
 create table if not exists organizations (
-  id uuid primary key default gen_random_uuid(),
+  id text primary key,
   name text not null,
   type text not null check (type in ('nonprofit','government','community','faith_based','employer')),
   location text,
@@ -18,16 +18,16 @@ create table if not exists organizations (
 );
 
 create table if not exists caseworkers (
-  id uuid primary key default gen_random_uuid(),
+  id text primary key,
   name text not null,
-  org_id uuid references organizations(id) on delete set null,
+  org_id text references organizations(id) on delete set null,
   role text,
   created_at timestamptz not null default now()
 );
 
 create table if not exists resources (
-  id uuid primary key default gen_random_uuid(),
-  org_id uuid references organizations(id) on delete cascade,
+  id text primary key,
+  org_id text references organizations(id) on delete cascade,
   type text not null check (type in ('employment','housing','legal','financial','education','healthcare','id_benefits')),
   title text not null,
   description text,
@@ -41,7 +41,7 @@ create table if not exists resources (
 -- --- Client-side tables ---
 
 create table if not exists clients (
-  id uuid primary key default gen_random_uuid(),
+  id text primary key,
   name text not null,
   released_on date,
   incarceration_years int,
@@ -49,15 +49,15 @@ create table if not exists clients (
   skills jsonb default '[]'::jsonb,
   needs jsonb default '[]'::jsonb,
   goals text,
-  assigned_caseworker_id uuid references caseworkers(id) on delete set null,
+  assigned_caseworker_id text references caseworkers(id) on delete set null,
   profile_summary text,
   last_activity_at timestamptz not null default now(),
   created_at timestamptz not null default now()
 );
 
 create table if not exists plan_steps (
-  id uuid primary key default gen_random_uuid(),
-  client_id uuid not null references clients(id) on delete cascade,
+  id text primary key,
+  client_id text not null references clients(id) on delete cascade,
   "order" int not null,
   category text not null check (category in ('id','benefits','housing','employment','education','legal','healthcare','financial','other')),
   title text not null,
@@ -65,16 +65,16 @@ create table if not exists plan_steps (
   where_to_go text,
   what_to_bring text,
   status text not null default 'todo' check (status in ('todo','in_progress','done')),
-  depends_on uuid references plan_steps(id) on delete set null,
+  depends_on text references plan_steps(id) on delete set null,
   updated_at timestamptz not null default now()
 );
 
 create index if not exists plan_steps_client_idx on plan_steps(client_id, "order");
 
 create table if not exists messages (
-  id uuid primary key default gen_random_uuid(),
-  client_id uuid not null references clients(id) on delete cascade,
-  org_id uuid references organizations(id) on delete set null,
+  id text primary key default gen_random_uuid()::text,
+  client_id text not null references clients(id) on delete cascade,
+  org_id text references organizations(id) on delete set null,
   sender text not null check (sender in ('client','org')),
   body text not null,
   created_at timestamptz not null default now()

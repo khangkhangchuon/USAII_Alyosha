@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getActivePersona } from "@/lib/persona/server";
 import { ReadAloud } from "@/components/a11y/ReadAloud";
+import { GuidedTour } from "@/components/GuidedTour";
 
 export default async function ClientHome() {
   const persona = await getActivePersona();
@@ -37,6 +38,14 @@ export default async function ClientHome() {
           Open my map →
         </Link>
       </section>
+
+      <section>
+        <Link href="/progress" className="text-navy-600 underline">
+          See how far I've come →
+        </Link>
+      </section>
+
+      <GuidedTour surface="client" />
     </div>
   );
 }
