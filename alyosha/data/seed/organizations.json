@@ -1,0 +1,92 @@
+[
+  {
+    "id": "org-brk-reentry-collective",
+    "name": "Brooklyn Reentry Collective",
+    "type": "nonprofit",
+    "location": "Brooklyn, NY",
+    "partnered": true,
+    "contact": { "phone": "(718) 555-0101", "email": "help@brk-reentry.example.org" },
+    "services_summary": "Case management, housing referrals, fair-chance employment, peer support. Fictional demo org."
+  },
+  {
+    "id": "org-fortune-society",
+    "name": "The Fortune Society",
+    "type": "nonprofit",
+    "location": "Long Island City, NY",
+    "partnered": false,
+    "contact": { "phone": "(212) 691-7554", "website": "https://fortunesociety.org" },
+    "services_summary": "Housing (The Castle, Castle Gardens), employment, education, family services."
+  },
+  {
+    "id": "org-osborne-association",
+    "name": "The Osborne Association",
+    "type": "nonprofit",
+    "location": "Bronx, NY",
+    "partnered": false,
+    "contact": { "phone": "(718) 707-2600", "website": "https://www.osborneny.org" },
+    "services_summary": "Employment, family services, court advocacy, youth and elder reentry programs."
+  },
+  {
+    "id": "org-ceo",
+    "name": "Center for Employment Opportunities",
+    "type": "nonprofit",
+    "location": "Manhattan, NY",
+    "partnered": false,
+    "contact": { "phone": "(212) 422-4430", "website": "https://ceoworks.org" },
+    "services_summary": "Immediate transitional work, job coaching, and placement for people recently released."
+  },
+  {
+    "id": "org-doe-fund",
+    "name": "The Doe Fund",
+    "type": "nonprofit",
+    "location": "Manhattan, NY",
+    "partnered": false,
+    "contact": { "phone": "(212) 628-5207", "website": "https://www.doe.org" },
+    "services_summary": "Ready, Willing & Able — paid work, housing, and training for men exiting incarceration or homelessness."
+  },
+  {
+    "id": "org-legal-aid-reentry",
+    "name": "Legal Aid Society — Reentry Unit",
+    "type": "nonprofit",
+    "location": "Manhattan, NY",
+    "partnered": false,
+    "contact": { "phone": "(212) 577-3300", "website": "https://legalaidnyc.org" },
+    "services_summary": "Record sealing, expungement support, civil legal aid, know-your-rights."
+  },
+  {
+    "id": "org-per-scholas",
+    "name": "Per Scholas",
+    "type": "nonprofit",
+    "location": "Bronx, NY",
+    "partnered": false,
+    "contact": { "phone": "(718) 991-8400", "website": "https://perscholas.org" },
+    "services_summary": "Free 12–15 week IT training programs (cybersecurity, cloud, software engineering)."
+  },
+  {
+    "id": "org-idnyc",
+    "name": "IDNYC",
+    "type": "government",
+    "location": "NYC (multiple enrollment centers)",
+    "partnered": false,
+    "contact": { "phone": "311", "website": "https://www.nyc.gov/site/idnyc" },
+    "services_summary": "Free municipal ID card. Accepted for many city services. Helpful while waiting on state ID."
+  },
+  {
+    "id": "org-access-hra",
+    "name": "ACCESS HRA",
+    "type": "government",
+    "location": "NYC (online + HRA centers)",
+    "partnered": false,
+    "contact": { "phone": "311", "website": "https://access.nyc.gov" },
+    "services_summary": "Apply for SNAP, Medicaid, and Cash Assistance online or in person."
+  },
+  {
+    "id": "org-nyc-dmv",
+    "name": "NY State DMV (NYC offices)",
+    "type": "government",
+    "location": "NYC (Brooklyn, Manhattan, Bronx, Queens, Staten Island)",
+    "partnered": false,
+    "contact": { "phone": "(518) 486-9786", "website": "https://dmv.ny.gov" },
+    "services_summary": "Apply for a NY State non-driver ID with required documents."
+  }
+]

@@ -1,0 +1,126 @@
+[
+  {
+    "id": "res-idnyc-application",
+    "org_id": "org-idnyc",
+    "type": "id_benefits",
+    "title": "IDNYC — free municipal ID",
+    "description": "Free photo ID accepted across NYC. Useful as a stepping stone while waiting on a state ID.",
+    "location": "Multiple enrollment centers across all five boroughs",
+    "eligibility": "Any NYC resident 10+. No conviction-related restrictions.",
+    "details": {
+      "application_process": "Book an appointment at nyc.gov/idnyc or call 311. Bring documents showing identity + residency (point system)."
+    }
+  },
+  {
+    "id": "res-nys-id",
+    "org_id": "org-nyc-dmv",
+    "type": "id_benefits",
+    "title": "New York State non-driver ID",
+    "description": "State-issued photo ID. Required for most employment, banking, and benefits.",
+    "location": "Any NYC DMV office",
+    "eligibility": "NY residents.",
+    "details": {
+      "what_to_bring": "Proof of identity (birth certificate, Social Security card), proof of NY residency, application form MV-44. Fee waiver available with proof of public assistance."
+    }
+  },
+  {
+    "id": "res-snap-application",
+    "org_id": "org-access-hra",
+    "type": "id_benefits",
+    "title": "SNAP food benefits",
+    "description": "Monthly food assistance. Apply online via ACCESS HRA or at any HRA center.",
+    "location": "Citywide (online or in person)",
+    "eligibility": "Income-based. Most adults released from incarceration are eligible.",
+    "details": {
+      "application_process": "access.nyc.gov → ACCESS HRA. Interview by phone after applying."
+    }
+  },
+  {
+    "id": "res-medicaid-application",
+    "org_id": "org-access-hra",
+    "type": "id_benefits",
+    "title": "Medicaid health coverage",
+    "description": "Free or low-cost health insurance for low-income New Yorkers.",
+    "location": "Citywide (online or in person)",
+    "eligibility": "Income-based. People recently released from incarceration are eligible immediately upon release.",
+    "details": {
+      "application_process": "access.nyc.gov or NY State of Health marketplace."
+    }
+  },
+  {
+    "id": "res-fortune-castle-housing",
+    "org_id": "org-fortune-society",
+    "type": "housing",
+    "title": "The Castle — transitional housing",
+    "description": "Emergency and transitional supportive housing for men with criminal-justice involvement.",
+    "location": "630 Riverside Drive, Manhattan",
+    "eligibility": "Adults with a criminal-justice history. Referrals via Fortune Society intake.",
+    "details": {
+      "application_process": "Call Fortune Society main line for intake screening."
+    }
+  },
+  {
+    "id": "res-ceo-transitional-work",
+    "org_id": "org-ceo",
+    "type": "employment",
+    "title": "Transitional day-labor crews",
+    "description": "Same-week paid work on cleaning, grounds, and maintenance crews while CEO helps you find a permanent job.",
+    "location": "Manhattan, Bronx",
+    "eligibility": "Released within last 6 months from a felony conviction; no current parole stay-away order against work.",
+    "details": {
+      "fair_chance": true,
+      "pay_range": "Daily pay at NY minimum or above",
+      "application_process": "Walk in for orientation Mon-Fri 8am at CEO Manhattan."
+    }
+  },
+  {
+    "id": "res-doe-fund-rwa",
+    "org_id": "org-doe-fund",
+    "type": "employment",
+    "title": "Ready, Willing & Able",
+    "description": "9–12 month paid work + housing + training program for men with histories of incarceration or homelessness.",
+    "location": "Manhattan (intake), housing in Brooklyn & Harlem",
+    "eligibility": "Men 18+, drug- and alcohol-free, willing to commit to full program.",
+    "details": {
+      "fair_chance": true,
+      "application_process": "Walk in Mon-Thu 7am at The Doe Fund Harlem intake."
+    }
+  },
+  {
+    "id": "res-per-scholas-it",
+    "org_id": "org-per-scholas",
+    "type": "education",
+    "title": "Free IT support training (15 weeks)",
+    "description": "Full-time tuition-free training leading to CompTIA A+ certification and IT support placement.",
+    "location": "Bronx (with hybrid options)",
+    "eligibility": "Adults 18+. Background check varies by employer partner — many are fair-chance.",
+    "details": {
+      "application_process": "perscholas.org/apply — info session, basic assessment, interview."
+    }
+  },
+  {
+    "id": "res-legal-aid-record-sealing",
+    "org_id": "org-legal-aid-reentry",
+    "type": "legal",
+    "title": "Record sealing & expungement help",
+    "description": "Free legal assistance to seal eligible NY criminal records under CPL 160.59.",
+    "location": "Manhattan (with phone intake)",
+    "eligibility": "Income-qualified New Yorkers with eligible convictions.",
+    "details": {
+      "application_process": "Call Legal Aid Reentry Unit for intake."
+    }
+  },
+  {
+    "id": "res-osborne-employment",
+    "org_id": "org-osborne-association",
+    "type": "employment",
+    "title": "Career Center — job placement",
+    "description": "Job readiness workshops, fair-chance employer connections, ongoing coaching.",
+    "location": "Bronx",
+    "eligibility": "Adults with criminal-justice history. No fee.",
+    "details": {
+      "fair_chance": true,
+      "application_process": "Call Osborne Association main line."
+    }
+  }
+]

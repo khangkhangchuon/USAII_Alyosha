@@ -1,0 +1,62 @@
+[
+  {
+    "id": "step-marcus-1",
+    "client_id": "client-marcus-bell",
+    "order": 1,
+    "category": "id",
+    "title": "Get your NY State ID",
+    "instructions": "Bring your birth certificate and proof of release to a NYC DMV office. Fill out Form MV-44. If you have proof of public assistance, you can request a fee waiver.",
+    "where_to_go": "Any NYC DMV office (Brooklyn nearest)",
+    "what_to_bring": "Birth certificate, proof of release papers, proof of NY address (shelter letter or mail). Application form MV-44.",
+    "status": "in_progress",
+    "depends_on": null
+  },
+  {
+    "id": "step-marcus-2",
+    "client_id": "client-marcus-bell",
+    "order": 2,
+    "category": "id",
+    "title": "Open a bank account",
+    "instructions": "Once you have your state ID, you can open a free or low-cost bank account so paychecks and benefits have a place to land.",
+    "where_to_go": "Any major bank branch in Brooklyn",
+    "what_to_bring": "NY State ID, Social Security card, small opening deposit (some accounts have no minimum).",
+    "status": "todo",
+    "depends_on": "step-marcus-1"
+  },
+  {
+    "id": "step-marcus-3",
+    "client_id": "client-marcus-bell",
+    "order": 3,
+    "category": "housing",
+    "title": "Apply for transitional housing (Fortune Society Castle)",
+    "instructions": "Call The Fortune Society for an intake screening. Be ready to share your release date and current shelter situation.",
+    "where_to_go": "Phone screening (Fortune Society)",
+    "what_to_bring": "Have your state ID, release papers, and any treatment or programming records available.",
+    "status": "todo",
+    "depends_on": "step-marcus-1"
+  },
+  {
+    "id": "step-marcus-4",
+    "client_id": "client-marcus-bell",
+    "order": 4,
+    "category": "benefits",
+    "title": "Apply for SNAP and Medicaid",
+    "instructions": "Use ACCESS HRA online to apply for both at once. Phone interview within 1–2 weeks.",
+    "where_to_go": "access.nyc.gov (online) or any HRA center",
+    "what_to_bring": "State ID, Social Security number, proof of release date.",
+    "status": "todo",
+    "depends_on": "step-marcus-1"
+  },
+  {
+    "id": "step-marcus-5",
+    "client_id": "client-marcus-bell",
+    "order": 5,
+    "category": "employment",
+    "title": "Start work with Center for Employment Opportunities",
+    "instructions": "Walk in Mon-Fri at 8am for CEO orientation. You can start on a paid day-labor crew within the week while CEO helps find you a permanent job.",
+    "where_to_go": "CEO Manhattan office",
+    "what_to_bring": "State ID, comfortable work clothes and shoes.",
+    "status": "todo",
+    "depends_on": "step-marcus-1"
+  }
+]

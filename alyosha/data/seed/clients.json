@@ -1,0 +1,80 @@
+[
+  {
+    "id": "client-marcus-bell",
+    "name": "Marcus Bell",
+    "released_on": "2026-04-15",
+    "incarceration_years": 6,
+    "documents": { "birth_certificate": true, "state_id": false, "social_security_card": false, "phone": false },
+    "skills": ["warehouse work", "basic cooking", "forklift (expired cert)"],
+    "needs": ["id", "housing", "employment"],
+    "goals": "Steady work and my own place.",
+    "assigned_caseworker_id": "cw-diane-r",
+    "profile_summary": "Marcus, 38, released to Brooklyn after 6 years. Has a birth certificate, no state ID, no phone. Warehouse and basic cooking skills. Priority: get the ID, then housing, then job.",
+    "last_activity_at": "2026-05-28T14:00:00Z"
+  },
+  {
+    "id": "client-tanya-w",
+    "name": "Tanya Williams",
+    "released_on": "2025-10-02",
+    "incarceration_years": 3,
+    "documents": { "birth_certificate": true, "state_id": true, "social_security_card": true },
+    "skills": ["home health aide cert", "customer service"],
+    "needs": ["healthcare", "employment"],
+    "goals": "Renew my HHA cert and get back to work.",
+    "assigned_caseworker_id": "cw-diane-r",
+    "profile_summary": "Tanya, 41, on track. Documents in hand. Working on HHA recertification and finding a fair-chance home-care employer.",
+    "last_activity_at": "2026-05-29T09:00:00Z"
+  },
+  {
+    "id": "client-andre-j",
+    "name": "Andre Jackson",
+    "released_on": "2025-06-20",
+    "incarceration_years": 4,
+    "documents": { "birth_certificate": true, "state_id": true, "social_security_card": true },
+    "skills": ["construction labor", "OSHA-10 (in progress)"],
+    "needs": [],
+    "goals": "Finish OSHA-10 and start the apprenticeship.",
+    "assigned_caseworker_id": "cw-diane-r",
+    "profile_summary": "Andre, 33, nearly done. ID and benefits set. OSHA-10 in progress. Has an apprenticeship lined up.",
+    "last_activity_at": "2026-05-27T11:00:00Z"
+  },
+  {
+    "id": "client-keisha-r",
+    "name": "Keisha Robinson",
+    "released_on": "2026-02-10",
+    "incarceration_years": 2,
+    "documents": { "birth_certificate": true, "state_id": true, "social_security_card": false },
+    "skills": ["retail", "data entry"],
+    "needs": ["benefits", "employment"],
+    "goals": "Find office work.",
+    "assigned_caseworker_id": "cw-diane-r",
+    "profile_summary": "Keisha, 29. Has gone quiet — no check-in for ~3 weeks. Last completed step was applying for Medicaid.",
+    "last_activity_at": "2026-05-08T10:00:00Z"
+  },
+  {
+    "id": "client-luis-m",
+    "name": "Luis Mendoza",
+    "released_on": "2026-05-22",
+    "incarceration_years": 9,
+    "documents": { "birth_certificate": false, "state_id": false, "social_security_card": false },
+    "skills": ["culinary (line cook)"],
+    "needs": ["id", "housing", "benefits", "employment"],
+    "goals": "Get on my feet and rebuild.",
+    "assigned_caseworker_id": "cw-diane-r",
+    "profile_summary": "Luis, 47, brand new. Just released last week. No documents in hand. Long incarceration — needs help with everything.",
+    "last_activity_at": "2026-05-29T12:00:00Z"
+  },
+  {
+    "id": "client-renee-s",
+    "name": "Renée Sims",
+    "released_on": "2026-01-05",
+    "incarceration_years": 5,
+    "documents": { "birth_certificate": true, "state_id": true, "social_security_card": true },
+    "skills": ["bookkeeping", "QuickBooks"],
+    "needs": ["childcare"],
+    "goals": "Get back to my kids and find part-time bookkeeping work.",
+    "assigned_caseworker_id": "cw-diane-r",
+    "profile_summary": "Renée, 36, single parent. Documents in hand, otherwise stable. Her one unmet need — childcare — is not covered by any resource currently listed in the network.",
+    "last_activity_at": "2026-05-26T15:00:00Z"
+  }
+]

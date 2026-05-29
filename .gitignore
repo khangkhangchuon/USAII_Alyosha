@@ -1,0 +1,15 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Env (defense in depth — alyosha/.gitignore also covers its own .env files)
+.env
+.env.*
+!.env.local.example
+!.env.example
