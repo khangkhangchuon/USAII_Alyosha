@@ -21,11 +21,6 @@ const IDNYC_CITE: Citation = {
   source_title: "IDNYC — how to apply",
   source_url: "https://access.nyc.gov/programs/idnyc/",
 };
-const SNAP_CITE: Citation = {
-  source_title: "SNAP food benefits — how to apply (NYC ACCESS HRA)",
-  source_url:
-    "https://access.nyc.gov/programs/supplemental-nutrition-assistance-program-snap/",
-};
 const FCA_CITE: Citation = {
   source_title:
     "NYC Fair Chance Act — employment rights for people with criminal records",

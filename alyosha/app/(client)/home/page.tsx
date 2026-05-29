@@ -41,7 +41,7 @@ export default async function ClientHome() {
 
       <section>
         <Link href="/progress" className="text-navy-600 underline">
-          See how far I've come →
+          See how far I&apos;ve come →
         </Link>
       </section>
 
