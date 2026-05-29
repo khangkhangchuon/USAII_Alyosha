@@ -4,6 +4,94 @@ Daily log of decisions, progress, and open questions. Newest entries on top.
 
 ---
 
+## 2026-05-29 (Friday) — Go-live: Supabase setup, AI verification, and the Vercel deploy saga
+
+This entry documents the full session that took the app from "code complete, never
+run" to **deployed and publicly working on Vercel**. Newest events first within.
+
+### Final state — IT'S LIVE ✅
+
+- **Public URL:** https://usaii-alyosha-4210ya38r-khangkhangchuons-projects.vercel.app
+- User confirmed both surfaces work in the browser. (Note: automated `curl` against
+  the URL still returns 401 — Vercel's protection blocks non-browser/bot user-agents
+  even after the auth wall is off for browsers. That's a testing artifact, not an
+  app issue.)
+- Stack running in production: Next.js **15.5.18** on Vercel, Supabase (data +
+  pgvector RAG), OpenAI (gpt-4o / gpt-4o-mini / text-embedding-3-small).
+
+### 1. Supabase setup + live verification of Phases 1–3
+
+- Created `.env.local` from the example; user filled in the 3 Supabase values + ran
+  the (uuid→text-fixed) migration in the SQL editor.
+- `npm run seed` succeeded: 10 orgs, 1 caseworker, 10 resources, 6 clients, 5 plan
+  steps.
+- Verified live: client Map renders Marcus's steps with locked dependents; org
+  Clients list shows all 6 with the "quiet" at-risk flag; **the client→org
+  round-trip works** — checking a step via `PATCH /api/steps/:id` flipped it to done,
+  unlocked dependents on the map, and showed "1/5 done" on Diane's view of Marcus.
+  Resource CRUD (`POST /api/resources`) persisted and appeared in `/listings`.
+  Test data cleaned up afterward.
+
+### 2. OpenAI funded + Phase 4 AI verified live
+
+- First `npm run ingest` hit **429 insufficient_quota** — valid key, but the account
+  had no prepaid balance. **Lesson: a funded balance (min $5) is a hard prerequisite,
+  separate from having a key.** After the user funded it, ingest embedded 4 chunks.
+- Verified live end to end: chat "How do I get my state ID?" → grounded DMV steps
+  **with citations**; "Should I take this plea deal?" → declined + routed to legal
+  aid; Smart Intake (James Carter) generated a dependency-ordered plan and **Approve**
+  created a real client; Caseload flagged Keisha (quiet ~21d); Gaps surfaced childcare
+  (Renée) + healthcare. Test client cleaned up.
+
+### 3. The Vercel deploy saga (four distinct failures, in order)
+
+The build *compiled* fine the whole time; every failure was config/platform/tooling.
+
+1. **`ENOENT … routes-manifest-deterministic.json`** (deploy step).
+   - Fix attempt A (commit `ff034cc`): gated `outputFileTracingRoot` / `turbopack.root`
+     behind `!VERCEL` in `next.config.ts` (a documented cause of this ENOENT). **Did
+     not fix it.**
+   - Fix attempt B (commit `619d7dd`): switched build to `next build --webpack` to
+     avoid Turbopack. **Did not fix it.**
+   - **Root cause found:** I confirmed locally that *no* Next build (Turbopack or
+     webpack, even with `VERCEL=1`) emits `routes-manifest-deterministic.json` — it's
+     a **Vercel pipeline artifact**, and the build log showed `Build Completed`. So
+     Next **16.2.6** was producing output the Vercel deploy step couldn't finalize.
+2. **Decision: downgrade Next 16.2.6 → 15.5.18** (latest stable 15.x, battle-tested
+   on Vercel). Commit `d4c8303`: pinned `next` + `eslint-config-next` to 15.5.18,
+   reverted build script to plain `next build` (`--webpack` is 16-only), reinstalled.
+   App is fully compatible (async `cookies()`/`params`, Tailwind v4, route handlers).
+   Local prod build + runtime smoke test passed on 15.
+3. **`Command "next build --webpack" exited with 1`.** Vercel had a **Build Command
+   override** still set to `next build --webpack` (leftover from attempt B), and that
+   flag doesn't exist in Next 15. **Fix (user, dashboard):** cleared the Build Command
+   override so it uses the package.json `next build`.
+4. **ESLint flat-config mismatch** (commit `9d038b3`): `eslint.config.mjs` used Next
+   16's flat-config imports (`eslint-config-next/core-web-vitals`), absent in Next 15.
+   Rewrote it with **`FlatCompat`** (`next/core-web-vitals` + `next/typescript`),
+   pinned `@eslint/eslintrc`. Fixing the config exposed a real **blocking** lint error
+   (`react/no-unescaped-entities` — the apostrophe in "I've come" on Home) → escaped
+   it; also removed an unused `SNAP_CITE` fixture. `eslint .` clean, build passes lint
+   + types (23 pages).
+
+### 4. Going public
+
+- The first green deploy returned **401 on every route** — **Vercel Deployment
+  Protection** (Vercel Authentication wall), not our app. User disabled it in
+  **Settings → Deployment Protection**. Site is now publicly reachable in a browser.
+
+### Carry-over risks / TODO (unchanged but now public-facing)
+
+- **Corpus is unverified** — re-verify the 4 sources (esp. reconstructed Fair Chance
+  Act) and restore the verified-only gate in `ingest.mjs` before promoting this.
+- **No auth + service-role key** on a public site: the rate limiter + OpenAI usage
+  cap bound cost; DB writes touch only fictional, re-seedable data. Revisit before
+  any real use.
+- **Env vars must exist for Production** in Vercel; adding any later requires a
+  redeploy.
+
+---
+
 ## 2026-05-29 (Friday) — Phase 5: Demo polish (guided tour, cost guard) + deploy
 
 **Goal:** Make the app demo-safe and publicly viewable. Scope (user's pick):
@@ -41,7 +129,8 @@ guided tour + pinned fixtures, rate limit + cost guard, Vercel deploy via GitHub
 - **Vercel (user, dashboard):** import the repo, set **Root Directory = `alyosha`**,
   add the 4 env vars (`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`,
   `SUPABASE_SERVICE_ROLE_KEY`, `OPENAI_API_KEY`).
-- **Public URL:** _<to fill in after Vercel import>_.
+- **Public URL:** https://usaii-alyosha-4210ya38r-khangkhangchuons-projects.vercel.app
+  (deployed after a multi-step debug — see the "Go-live" entry above).
 
 ### Security note
 
@@ -53,7 +142,7 @@ revisit before any real use.
 ### Task status
 
 - ✅ Phases 1–4
-- ✅ Phase 5 — Polish (guided tour, cost guard) + deploy prep (Vercel import pending)
+- ✅ Phase 5 — Polish (guided tour, cost guard) + **deployed live to Vercel**
 - 🚧 Phase 0 — Corpus (4 ingested unverified; expand + verify before public demo)
 - ⬜ Phase 6 — Landing / pitch page
 
